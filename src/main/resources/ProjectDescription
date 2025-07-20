@@ -1,0 +1,86 @@
+🧩 Project Description
+This is a simple role-based quiz system that allows:
+
+Admin users to add multiple-choice questions (MCQs) to a question bank.
+Student users to take a quiz based on the question bank.
+The system uses two files for persistence:
+
+users.json: Stores user credentials and roles.
+quiz.json: Stores the MCQ question bank.
+📁 File Structure
+✅ users.json
+Contains login credentials for both admin and student users:
+
+json
+CopyEdit
+[
+  { "username": "admin", "password": "1234", "role": "admin" },
+  { "username": "salman", "password": "1234", "role": "student" }
+]
+✅ quiz.json
+Stores all the MCQs added by the admin in the following format:
+
+[
+  {
+    "question": "Which is not part of system testing?",
+    "option 1": "Regression Testing",
+    "option 2": "Sanity Testing",
+    "option 3": "Load Testing",
+    "option 4": "Unit Testing",
+    "answerkey": 4
+  }
+]
+🔐 Login Flow
+Admin Login:
+System:> Enter your username
+User:> admin
+System:> Enter password
+User:> 1234
+System:> Welcome admin! Please create new questions in the question bank.
+Student Login:
+System:> Enter your username
+User:> salman
+System:> Enter password
+User:> 1234
+System:> Welcome salman to the quiz! We will throw you 10 questions. Each MCQ mark is 1 and no negative marking. Are you ready? Press 's' to start.
+🛠️ Admin Features
+After successful login, an admin user can continuously add MCQs until they press 'q' to quit.
+
+System:> Input your question
+Admin:> Which is not part of system testing?
+System:> Input option 1:
+Admin:> Regression Testing
+System:> Input option 2:
+Admin:> Sanity Testing
+System:> Input option 3:
+Admin:> Load Testing
+System:> Input option 4:
+Admin:> Unit Testing
+System:> What is the answer key?
+Admin:> 4
+System:> Saved successfully!
+System:> Do you want to add more questions? (press 's' to start, 'q' to quit)
+✅ Minimum Requirement: Add at least 20 SQA-related questions.
+
+
+
+🧑‍🎓 Student Quiz Flow
+System randomly selects 10 questions from the question bank.
+Duplicate questions may appear if the question bank is small.
+The student earns 1 mark for each correct answer.
+No negative marking.
+System:> [Question 1] Which is not part of system testing?
+1. Regression Testing
+2. Sanity Testing
+3. Load Testing
+4. Unit Testing
+Student:> 4
+...
+🧾 Scoring Criteria
+At the end of the quiz, the system shows the score and a message based on performance:
+
+8 to 10: Excellent! You have got [marks] out of 10
+5 to 7: Good. You have got [marks] out of 10
+3 to 4: Very poor! You have got [marks] out of 10
+0 to 2: Very sorry you are failed. You have got [marks] out of 10
+System:> Would you like to start again? Press 's' for start or 'q' for qui
